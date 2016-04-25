@@ -12,3 +12,12 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({type:'application/vnd.api+json'}));
 
 
+// the below points our server to a series of "route" files
+require('./app/routing/api-routes.js')(app); // path to the file
+require('./app/routing/html-routes.js')(app); // path to the file
+
+// the below code starts the server
+
+app.listen(PORT, function(){
+	console.log('App listening on PORT: ' + PORT);
+})
